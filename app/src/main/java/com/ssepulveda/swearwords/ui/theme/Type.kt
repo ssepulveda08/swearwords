@@ -20,7 +20,7 @@ val Typography by lazy {
         body2 = TextStyle(
             fontFamily = fonts,
             fontWeight = FontWeight.Normal,
-            fontSize = 14.sp
+            fontSize = 18.sp
         ),
         h1 = TextStyle(
             fontFamily = fonts,
@@ -55,8 +55,8 @@ val Typography by lazy {
     )
 }
 
-val fonts = FontFamily(
-    Font(R.font.roboto_black),
+private val fonts = FontFamily(
+    Font(R.font.roboto_regular, weight = FontWeight.Normal),
     Font(R.font.roboto_bold, weight = FontWeight.Bold),
     Font(R.font.roboto_light, weight = FontWeight.Light),
     Font(R.font.roboto_thin, weight = FontWeight.Thin),

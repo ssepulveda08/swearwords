@@ -88,7 +88,7 @@ fun SuccessDialog(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Este texto no tiene palabrotas",
-                        style = MaterialTheme.typography.h3,
+                        style = MaterialTheme.typography.body2,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(
                             start = 16.dp,
@@ -148,7 +148,7 @@ fun ErrorDialog(
                     Spacer(modifier = Modifier.width(8.dp))
                     Text(
                         text = "Lo sentimos!, Este texto tiene palabrotas :( ",
-                        style = MaterialTheme.typography.h3,
+                        style = MaterialTheme.typography.body2,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(
                             start = 16.dp,

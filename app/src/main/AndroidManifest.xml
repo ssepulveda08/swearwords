@@ -14,10 +14,10 @@
         android:theme="@style/Theme.swearwords"
         >
         <activity
-            android:name="com.ssepulveda.swearwords.ui.activitys.MainActivity"
+            android:name="com.ssepulveda.swearwords.ui.activities.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.swearwords">
+            android:theme="@style/Theme.swearwords"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

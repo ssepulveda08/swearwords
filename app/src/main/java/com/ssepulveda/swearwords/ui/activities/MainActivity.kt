@@ -1,5 +1,7 @@
-package com.ssepulveda.swearwords.ui.activitys
+package com.ssepulveda.swearwords.ui.activities
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import com.ssepulveda.swearwords.ui.screens.AddLoading
+import com.ssepulveda.swearwords.ui.screens.CustomToolbar
 import com.ssepulveda.swearwords.ui.screens.InitDialog
 import com.ssepulveda.swearwords.ui.screens.InitForm
 import com.ssepulveda.swearwords.ui.theme.SwearWordsTheme
@@ -65,13 +68,27 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
-        if (!viewModel.uiSnackBar.isNullOrBlank()){
+        if (!viewModel.uiSnackBar.isNullOrBlank()) {
             onShowSnackBar.invoke(
                 viewModel.uiSnackBar.orEmpty()
             )
         }
-        Scaffold(scaffoldState = scaffoldState) {
+        Scaffold(
+            topBar = {
+                CustomToolbar {
+                    openGithub()
+                }
+            },
+            scaffoldState = scaffoldState
+        ) {
             content()
         }
+    }
+
+    private fun openGithub() {
+        val webIntent: Intent = Intent(Intent.ACTION_VIEW,
+            Uri.parse("https://github.com/ssepulveda08/swearwords")
+        )
+        startActivity(webIntent)
     }
 }

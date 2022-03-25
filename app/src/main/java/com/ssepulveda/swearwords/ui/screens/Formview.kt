@@ -13,6 +13,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -29,7 +30,7 @@ fun InitForm(mainViewModel: MainViewModel = viewModel()) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
-        TitleForm("Android")
+        TitleForm()
         SimpleOutlinedTextFieldSample(mainViewModel)
         CustomButton(mainViewModel)
     }
@@ -53,6 +54,7 @@ private fun SimpleOutlinedTextFieldSample(mainViewModel: MainViewModel = viewMod
             .fillMaxWidth()
             .height(200.dp),
         value = mainViewModel.text,
+        textStyle = MaterialTheme.typography.body2,
         onValueChange = {
             mainViewModel.text = it
         },
@@ -64,13 +66,33 @@ private fun SimpleOutlinedTextFieldSample(mainViewModel: MainViewModel = viewMod
 }
 
 @Composable
-private fun TitleForm(name: String) {
-    Text(
-        modifier = Modifier
-            .padding(bottom = 16.dp),
-        text = "Hello $name!",
-        style = MaterialTheme.typography.h1
-    )
+private fun TitleForm() {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        Text(
+            modifier = Modifier
+                .padding(
+                    top = 16.dp,
+                    start = 16.dp,
+                    end = 16.dp,),
+            text = "Hola!",
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.h1
+        )
+        Text(
+            modifier = Modifier
+                .padding(
+                    top = 10.dp,
+                    start = 16.dp,
+                    end = 16.dp,
+                    bottom = 16.dp
+                ),
+            text = "Estamos a gusto de validar tu texto, te diremos si tiene Palabrotas",
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.body1
+        )
+    }
 }
 
 @Preview(device = Devices.PIXEL_2_XL)
