@@ -1,4 +1,4 @@
-name: Deploy App CI
+name: Release PlayStore
 
 on:
   push:
@@ -8,9 +8,6 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
-    env:
-      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 
     steps:
 
@@ -52,7 +49,7 @@ jobs:
         uses: r0adkll/upload-google-play@v1
         with:
           serviceAccountJson: service_account.json
-          packageName: com.package
+          packageName: com.ssepulveda.swearwords
           releaseFile: app/build/outputs/bundle/release/app-release.aab
           track: beta
           whatsNewDirectory: whatsnew/
