@@ -15,10 +15,8 @@ import androidx.compose.material.rememberScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import com.ssepulveda.swearwords.ui.screens.AddLoading
 import com.ssepulveda.swearwords.ui.screens.CustomToolbar
-import com.ssepulveda.swearwords.ui.screens.InitDialog
-import com.ssepulveda.swearwords.ui.screens.InitForm
+import com.ssepulveda.swearwords.ui.screens.ScreenHome
 import com.ssepulveda.swearwords.ui.theme.SwearWordsTheme
 import com.ssepulveda.swearwords.viewModels.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,9 +36,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colors.background
                 ) {
                     ContainerSnackBar {
-                        InitForm(viewModel)
-                        AddLoading(viewModel)
-                        InitDialog(viewModel)
+                        ScreenHome(viewModel)
                     }
                 }
             }

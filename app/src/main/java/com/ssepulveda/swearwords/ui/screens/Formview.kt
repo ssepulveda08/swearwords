@@ -3,6 +3,8 @@ package com.ssepulveda.swearwords.ui.screens
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -22,7 +24,25 @@ import com.ssepulveda.swearwords.ui.theme.SwearWordsTheme
 import com.ssepulveda.swearwords.viewModels.MainViewModel
 
 @Composable
-fun InitForm(mainViewModel: MainViewModel = viewModel()) {
+fun InitFormLandscape(mainViewModel: MainViewModel = viewModel()) {
+    Row {
+        SimpleOutlinedTextFieldSample(
+            Modifier.fillMaxHeight().weight(0.6f).padding(16.dp),
+            mainViewModel
+        )
+        Column(
+            modifier = Modifier.fillMaxHeight().weight(0.4f).padding(12.dp),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ){
+            TitleForm()
+            CustomButton(mainViewModel)
+        }
+    }
+}
+
+@Composable
+fun InitFormPortrait(mainViewModel: MainViewModel = viewModel()) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -31,7 +51,7 @@ fun InitForm(mainViewModel: MainViewModel = viewModel()) {
         verticalArrangement = Arrangement.SpaceEvenly,
     ) {
         TitleForm()
-        SimpleOutlinedTextFieldSample(mainViewModel)
+        SimpleOutlinedTextFieldSample(mainViewModel = mainViewModel)
         CustomButton(mainViewModel)
     }
 }
@@ -48,11 +68,12 @@ private fun CustomButton(mainViewModel: MainViewModel = viewModel()) {
 }
 
 @Composable
-private fun SimpleOutlinedTextFieldSample(mainViewModel: MainViewModel = viewModel()) {
+private fun SimpleOutlinedTextFieldSample(
+    customModifier: Modifier = getDefaultModifierTextField(),
+    mainViewModel: MainViewModel = viewModel()
+) {
     OutlinedTextField(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp),
+        modifier = customModifier,
         value = mainViewModel.text,
         textStyle = MaterialTheme.typography.body2,
         onValueChange = {
@@ -64,6 +85,10 @@ private fun SimpleOutlinedTextFieldSample(mainViewModel: MainViewModel = viewMod
         ) }
     )
 }
+
+private fun getDefaultModifierTextField() = Modifier
+.fillMaxWidth()
+.height(200.dp)
 
 @Composable
 private fun TitleForm() {
