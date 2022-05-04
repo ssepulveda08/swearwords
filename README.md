@@ -1,5 +1,5 @@
 # swearwords
-# swearwords V 1.0.0 🥁
+# swearwords V 1.2.0 🥁
 
 Swearwords es una para detectar si una texto tiene palabrotas o groserías, esta aplicación se crea con el fin de poder hacer practicas de Jetpack Compose creando interfaces interactivas que responden a evento que el usuario lanza con parámetros de entrada.  
 
